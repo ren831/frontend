@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./components/static/Authentication/Signup";
 import Login from "./components/static/Authentication/Login";
 import Home from "./components/static/Home";
+import {
+  baseUrl,
+  headers,
+  getToken,
+} from "./components/static/Authentication/Globals";
 
 const App = () => {
   const [currentClient, setCurrentClient] = useState({});
@@ -14,17 +19,30 @@ const App = () => {
     setLoggedIn(true);
   };
 
+  const LogOutClient = () => {
+    currentClient({});
+    loggedIn(false);
+    localStorage.removeItem("jwt");
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token && !loggedIn) {
-      setLoggedIn(true);
+      fetch(baseUrl + "/get-current-client", {
+        method: "GET",
+        headers: {
+          ...headers,
+          ...getToken(),
+        },
+      })
+        .then((r) => r.json())
+        .then((client) => loginClient(client));
     }
   }, []);
 
   return (
     <Router>
-      {loggedIn ? <h1>Hey youre loggedIn!</h1> : null}
-      <Navbar />
+      <Navbar loggedIn={loginClient} LogOutClient={LogOutClient} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup loginClient={loginClient} />} />
