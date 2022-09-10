@@ -20,8 +20,8 @@ const App = () => {
   };
 
   const LogOutClient = () => {
-    currentClient({});
-    loggedIn(false);
+    setCurrentClient({});
+    setLoggedIn(false);
     localStorage.removeItem("jwt");
   };
 
@@ -42,11 +42,11 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar loggedIn={loginClient} LogOutClient={LogOutClient} />
+      <Navbar loggedIn={loggedIn} LogOutClient={LogOutClient} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup loginClient={loginClient} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login loginClient={loginClient} />} />
       </Routes>
     </Router>
   );

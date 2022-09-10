@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ loggedIn, LogOutCleint }) => {
+const Navbar = ({ loggedIn, LogOutClient }) => {
   const loggedOutLinks = () => {
     return (
       <ul>
@@ -20,7 +20,7 @@ const Navbar = ({ loggedIn, LogOutCleint }) => {
 
   const HandleLogout = (e) => {
     e.preventDefault();
-    LogOutCleint();
+    LogOutClient();
   };
 
   const loggedInLinks = () => {
@@ -31,8 +31,7 @@ const Navbar = ({ loggedIn, LogOutCleint }) => {
         </li>
         <li>
           <a href="#" onClick={HandleLogout}>
-            {" "}
-            Logout{" "}
+            Logout
           </a>
         </li>
       </ul>
