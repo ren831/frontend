@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Barbers from "../../Barbers";
 
 const Navbar = ({ loggedIn, LogOutClient }) => {
   const loggedOutLinks = () => {
@@ -28,6 +29,9 @@ const Navbar = ({ loggedIn, LogOutClient }) => {
       <ul>
         <li>
           <Link to="/">HomePage</Link>
+        </li>
+        <li>
+          <NavLink to="/barbers">Barbers</NavLink>
         </li>
         <li>
           <a href="#" onClick={HandleLogout}>
