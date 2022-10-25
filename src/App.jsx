@@ -12,15 +12,17 @@ import {
 
 const App = () => {
   const [currentClient, setCurrentClient] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [barbers, setBarbers] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [barbers, setBarbers] = useState([]);
 
-  useEffect(())
+  useEffect(() => {
+    fetch();
+  }, []);
 
   const loginClient = (client) => {
     setCurrentClient(client);
     setLoggedIn(true);
-  }
+  };
 
   const LogOutClient = () => {
     setCurrentClient({});
