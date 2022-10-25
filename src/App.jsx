@@ -16,7 +16,9 @@ const App = () => {
   const [barbers, setBarbers] = useState([]);
 
   useEffect(() => {
-    fetch();
+    fetch("http://localhost:3001/barbers")
+      .then((r) => r.json())
+      .then((data) => console.log(data));
   }, []);
 
   const loginClient = (client) => {
