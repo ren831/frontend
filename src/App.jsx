@@ -9,6 +9,7 @@ import {
   headers,
   getToken,
 } from "./components/static/Authentication/Globals";
+import BarberCard from "./components/BarberCard";
 
 const App = () => {
   const [currentClient, setCurrentClient] = useState({});
@@ -16,10 +17,16 @@ const App = () => {
   const [barbers, setBarbers] = useState([]);
 
   useEffect(() => {
-    fetch(baseUrl + "/")
+    fetch(baseUrl + "/barbers")
       .then((r) => r.json())
-      .then((data) => console.log(data));
+      .then((data) => setBarbers(data));
   }, []);
+
+  let barberArr = barbers.map((barber) => {
+    return (
+      <BarberCard key={barber.id} barber={barber} reviews={barber.reviews} />
+    );
+  });
 
   const loginClient = (client) => {
     setCurrentClient(client);

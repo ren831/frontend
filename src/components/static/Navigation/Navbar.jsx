@@ -30,7 +30,7 @@ const Navbar = ({ loggedIn, LogOutClient }) => {
           <Link to="/">HomePage</Link>
         </li>
         <li>
-          <NavLink to="/barbers">Barbers</NavLink>
+          <Link to="/barbers">Barbers</Link>
         </li>
         <li>
           <a href="#" onClick={HandleLogout}>
