@@ -1,4 +1,5 @@
 import React from "react";
+import BarberForm from "./static/BarberForm";
 import Navbar from "./static/Navigation/Navbar";
 
 function Barbers() {
@@ -6,6 +7,7 @@ function Barbers() {
     <div>
       <Navbar />
       <h1>List of Barbers</h1>
+      <BarberForm />
     </div>
   );
 }

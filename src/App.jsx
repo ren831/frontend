@@ -16,7 +16,7 @@ const App = () => {
   const [barbers, setBarbers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/barbers")
+    fetch(baseUrl + "/")
       .then((r) => r.json())
       .then((data) => console.log(data));
   }, []);
