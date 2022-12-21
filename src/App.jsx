@@ -14,19 +14,6 @@ import BarberCard from "./components/BarberCard";
 const App = () => {
   const [currentClient, setCurrentClient] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
-  const [barbers, setBarbers] = useState([]);
-
-  useEffect(() => {
-    fetch(baseUrl + "/barbers")
-      .then((r) => r.json())
-      .then((data) => setBarbers(data));
-  }, []);
-
-  let barberArr = barbers.map((barber) => {
-    return (
-      <BarberCard key={barber.id} barber={barber} reviews={barber.reviews} />
-    );
-  });
 
   const loginClient = (client) => {
     setCurrentClient(client);
