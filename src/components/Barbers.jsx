@@ -26,7 +26,7 @@ function Barbers() {
   return (
     <div>
       <h1>List of Barbers</h1>
-      <BarberCard />
+      <BarberCard barberArr={barberArr} />
       <BarberForm addBarber={addBarber} />
       <ReviewForm />
     </div>
