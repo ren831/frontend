@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import BarberCard from "./BarberCard";
 import ReviewForm from "./ReviewForm";
 import BarberForm from "./static/BarberForm";
+import { baseUrl } from "./static/Authentication/Globals";
 
 function Barbers() {
   const [barbers, setBarbers] = useState([]);
@@ -17,6 +18,8 @@ function Barbers() {
       <BarberCard key={barber.id} barber={barber} reviews={barber.reviews} />
     );
   });
+
+  console.log(barberArr);
 
   function addBarber(newBarber) {
     const upddatedBarber = [...barbers, newBarber];
