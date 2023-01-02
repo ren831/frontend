@@ -1,6 +1,7 @@
 import React from "react";
 
-function BarberCard({ barberArr }) {
+function BarberCard({ barber }) {
+  console.log(barber);
   return;
 
   <div class="ui cards">
